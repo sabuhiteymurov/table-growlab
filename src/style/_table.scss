@@ -1,0 +1,19 @@
+.section-table {
+  &_title {
+    text-align: center;
+    padding: 1.6rem 0;
+  }
+  .loading-title {
+    margin-top: 2.4rem;
+    text-align: center;
+  }
+}
+
+.table-row_button {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.section-table {
+  margin: 0 7.5rem;
+}
