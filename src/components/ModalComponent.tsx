@@ -57,7 +57,7 @@ const ModalComponent: React.FC<{
 }> = ({ additionalSkillRow, setAdditionalSkillRow, initialSkillState }) => {
   const [open, setOpen] = useState(true);
   const handleClose = () => setAdditionalSkillRow(initialSkillState);
-
+  console.log(additionalSkillRow);
   return (
     <div>
       <Modal
@@ -75,7 +75,7 @@ const ModalComponent: React.FC<{
         <Fade in={open}>
           <Box sx={style}>
             <TableContainer component={Paper}>
-              <h2>Language Skills</h2>
+              <h2>Language skills</h2>
               <Table sx={{ minWidth: 600 }} aria-label='customized table'>
                 <TableHead>
                   <TableRow>
@@ -96,7 +96,7 @@ const ModalComponent: React.FC<{
                   </StyledTableRow>
                 </TableBody>
               </Table>
-              <h2>Additional Questions</h2>
+              <h2>Additional questions</h2>
               <Table sx={{ minWidth: 600 }} aria-label='customized table'>
                 <TableHead>
                   <TableRow>
@@ -124,7 +124,7 @@ const ModalComponent: React.FC<{
                 </TableBody>
               </Table>
               <h2>Education background</h2>
-              <Table sx={{ minWidth: 700 }} aria-label='customized table'>
+              <Table sx={{ minWidth: 600 }} aria-label='customized table'>
                 <TableHead>
                   <TableRow>
                     <StyledTableCell>Field</StyledTableCell>
@@ -146,6 +146,29 @@ const ModalComponent: React.FC<{
                     </StyledTableCell>
                     <StyledTableCell align='right'>
                       {additionalSkillRow.education_background[0].graduation}
+                    </StyledTableCell>
+                  </StyledTableRow>
+                </TableBody>
+              </Table>
+              <h2>Work and volunteering</h2>
+              <Table sx={{ minWidth: 600 }} aria-label='customized table'>
+                <TableHead>
+                  <TableRow>
+                    <StyledTableCell>Title</StyledTableCell>
+                    <StyledTableCell align='right'>Company</StyledTableCell>
+                    <StyledTableCell align='right'>Duration</StyledTableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <StyledTableRow key={uuid()}>
+                    <StyledTableCell component='th' scope='row'>
+                      {additionalSkillRow.work_and_volunteering[0].title}
+                    </StyledTableCell>
+                    <StyledTableCell align='right'>
+                      {additionalSkillRow.work_and_volunteering[0].company}
+                    </StyledTableCell>
+                    <StyledTableCell align='right'>
+                      {additionalSkillRow.work_and_volunteering[0].duration}
                     </StyledTableCell>
                   </StyledTableRow>
                 </TableBody>

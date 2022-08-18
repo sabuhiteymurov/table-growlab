@@ -16,6 +16,11 @@ code {
 .modal {
   h2 {
     text-align: center;
-    margin-top: 2.4rem;
+    margin-top: 1.2rem;
+    font-size: 1.25rem;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
   }
 }

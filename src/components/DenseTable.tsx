@@ -36,6 +36,13 @@ const DenseTable: React.FC<{ rows: any }> = ({ rows }) => {
         graduation: '',
       },
     ],
+    work_and_volunteering: [
+      {
+        title: '',
+        company: '',
+        duration: '',
+      },
+    ],
   };
   const [additionalSkillRow, setAdditionalSkillRow] =
     useState(initialSkillState);
@@ -56,6 +63,7 @@ const DenseTable: React.FC<{ rows: any }> = ({ rows }) => {
             <TableCell align='right'>Email</TableCell>
             <TableCell align='right'>Birthday</TableCell>
             <TableCell align='right'>Phone number</TableCell>
+            <TableCell align='right'>Hard&nbsp;skills</TableCell>
             <TableCell align='right'>Soft&nbsp;skills</TableCell>
           </TableRow>
         </TableHead>
@@ -74,6 +82,7 @@ const DenseTable: React.FC<{ rows: any }> = ({ rows }) => {
                   <TableCell align='right'>{row.email}</TableCell>
                   <TableCell align='right'>{row.birthday}</TableCell>
                   <TableCell align='right'>{row.phonenumber}</TableCell>
+                  <TableCell align='right'>{row.hard_skills}</TableCell>
                   <TableCell align='right'>{row.soft_skills}</TableCell>
                   <Button
                     variant='outlined'
