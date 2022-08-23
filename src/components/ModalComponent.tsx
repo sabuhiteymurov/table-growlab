@@ -3,8 +3,6 @@ import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
@@ -15,7 +13,6 @@ import Paper from '@mui/material/Paper';
 
 //@ts-ignore
 import uuid from 'react-uuid';
-import { useState } from 'react';
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -55,7 +52,6 @@ const ModalComponent: React.FC<{
   setAdditionalSkillRow: any;
   initialSkillState: any;
 }> = ({ additionalSkillRow, setAdditionalSkillRow, initialSkillState }) => {
-  const [open, setOpen] = useState(true);
   const handleClose = () => setAdditionalSkillRow(initialSkillState);
   console.log(additionalSkillRow);
   return (
@@ -63,7 +59,7 @@ const ModalComponent: React.FC<{
       <Modal
         aria-labelledby='transition-modal-title'
         aria-describedby='transition-modal-description'
-        open={open}
+        open={true}
         onClose={handleClose}
         closeAfterTransition
         BackdropComponent={Backdrop}
@@ -72,7 +68,7 @@ const ModalComponent: React.FC<{
         }}
         className='modal'
       >
-        <Fade in={open}>
+        <Fade in={true}>
           <Box sx={style}>
             <TableContainer component={Paper}>
               <h2>Language skills</h2>

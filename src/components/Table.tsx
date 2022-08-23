@@ -1,8 +1,9 @@
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import DenseTable from './DenseTable';
+import Button from '@mui/material/Button';
 // @ts-ignore;
 import uuid from 'react-uuid';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
 
 const Table: React.FC = () => {
   const url =
@@ -33,7 +34,16 @@ const Table: React.FC = () => {
 
   return (
     <section className='section-table'>
-      <h2 className='section-table_title'>Table</h2>
+      <div className='section-table_upper-container'>
+        <h2 className='section-table_title'>Table</h2>
+        <Button
+          variant='contained'
+          size='small'
+          className='section-table_update'
+        >
+          Update
+        </Button>
+      </div>
       {isLoading && <h3 className='loading-title'>Loading...</h3>}
       {tableData && (
         <div className='section-table'>

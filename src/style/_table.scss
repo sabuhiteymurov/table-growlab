@@ -1,11 +1,21 @@
 .section-table {
-  &_title {
-    text-align: center;
+  &_upper-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
     padding: 1.6rem 0;
   }
   .loading-title {
     margin-top: 2.4rem;
     text-align: center;
+  }
+  &_title {
+    margin: 0;
+  }
+  &_update {
+    font-size: 12px !important;
+    margin-top: 2px !important;
   }
 }
 
