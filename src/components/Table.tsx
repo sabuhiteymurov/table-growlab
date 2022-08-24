@@ -28,6 +28,44 @@ const Table: React.FC = () => {
     setIsLoading(false);
   };
 
+  const handleUpdate = async () => {
+    const pageId = '1d0774913d184f92979361296cfbd1b1';
+    //@ts-ignore
+    const updatedData = tableData.map((obj: any) => {
+      return {
+        fullname: obj.fullname,
+        email: obj.email,
+        birthday: obj.birthday,
+        phoneNumber: obj.phonenumber,
+        hardSkills: obj.hard_skills,
+        softSkills: obj.soft_skills,
+      };
+    });
+    try {
+      await updatedData.forEach(async (dataObj: any) => {
+        await axios.post(
+          'http://localhost:4000/updateFormToNotion',
+          {
+            fullName: dataObj.fullname,
+            email: dataObj.email,
+            birthday: dataObj.birthday,
+            phoneNumber: dataObj.phoneNumber,
+            hardSkills: dataObj.hardSkills,
+            softSkills: dataObj.softSkills,
+          },
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'Notion-Version': '2022-06-28',
+            },
+          }
+        );
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   useEffect(() => {
     getTableData();
   }, []);
@@ -40,6 +78,7 @@ const Table: React.FC = () => {
           variant='contained'
           size='small'
           className='section-table_update'
+          onClick={handleUpdate}
         >
           Update
         </Button>

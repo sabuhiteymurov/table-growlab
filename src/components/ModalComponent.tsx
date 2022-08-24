@@ -53,7 +53,6 @@ const ModalComponent: React.FC<{
   initialSkillState: any;
 }> = ({ additionalSkillRow, setAdditionalSkillRow, initialSkillState }) => {
   const handleClose = () => setAdditionalSkillRow(initialSkillState);
-  console.log(additionalSkillRow);
   return (
     <div>
       <Modal
