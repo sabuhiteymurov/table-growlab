@@ -29,7 +29,6 @@ const Table: React.FC = () => {
   };
 
   const handleUpdate = async () => {
-    const pageId = '1d0774913d184f92979361296cfbd1b1';
     //@ts-ignore
     const updatedData = tableData.map((obj: any) => {
       return {
