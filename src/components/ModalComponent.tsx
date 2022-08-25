@@ -23,6 +23,8 @@ const style = {
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
+  overflowY: 'scroll',
+  height: 650,
   p: 4,
 };
 
@@ -81,14 +83,18 @@ const ModalComponent: React.FC<{
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  <StyledTableRow key={uuid()}>
-                    <StyledTableCell component='th' scope='row'>
-                      {additionalSkillRow.language_skills[0].language}
-                    </StyledTableCell>
-                    <StyledTableCell align='right'>
-                      {additionalSkillRow.language_skills[0].languageLevel}
-                    </StyledTableCell>
-                  </StyledTableRow>
+                  {additionalSkillRow.language_skills.map((lang: any) => {
+                    return (
+                      <StyledTableRow key={uuid()}>
+                        <StyledTableCell component='th' scope='row'>
+                          {lang.language}
+                        </StyledTableCell>
+                        <StyledTableCell align='right'>
+                          {lang.languageLevel}
+                        </StyledTableCell>
+                      </StyledTableRow>
+                    );
+                  })}
                 </TableBody>
               </Table>
               <h2>Additional questions</h2>
@@ -102,20 +108,26 @@ const ModalComponent: React.FC<{
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  <StyledTableRow key={uuid()}>
-                    <StyledTableCell component='th' scope='row'>
-                      {additionalSkillRow.additional_questions[0].company}
-                    </StyledTableCell>
-                    <StyledTableCell align='right'>
-                      {additionalSkillRow.additional_questions[0].question_2}
-                    </StyledTableCell>
-                    <StyledTableCell align='right'>
-                      {additionalSkillRow.additional_questions[0].question_3}
-                    </StyledTableCell>
-                    <StyledTableCell align='right'>
-                      {additionalSkillRow.additional_questions[0].question_4}
-                    </StyledTableCell>
-                  </StyledTableRow>
+                  {additionalSkillRow.additional_questions.map(
+                    (questions: any) => {
+                      return (
+                        <StyledTableRow key={uuid()}>
+                          <StyledTableCell component='th' scope='row'>
+                            {questions.company}
+                          </StyledTableCell>
+                          <StyledTableCell align='right'>
+                            {questions.question_2}
+                          </StyledTableCell>
+                          <StyledTableCell align='right'>
+                            {questions.question_3}
+                          </StyledTableCell>
+                          <StyledTableCell align='right'>
+                            {questions.question_4}
+                          </StyledTableCell>
+                        </StyledTableRow>
+                      );
+                    }
+                  )}
                 </TableBody>
               </Table>
               <h2>Education background</h2>
@@ -129,20 +141,26 @@ const ModalComponent: React.FC<{
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  <StyledTableRow key={uuid()}>
-                    <StyledTableCell component='th' scope='row'>
-                      {additionalSkillRow.education_background[0].field}
-                    </StyledTableCell>
-                    <StyledTableCell align='right'>
-                      {additionalSkillRow.education_background[0].degree}
-                    </StyledTableCell>
-                    <StyledTableCell align='right'>
-                      {additionalSkillRow.education_background[0].entrance}
-                    </StyledTableCell>
-                    <StyledTableCell align='right'>
-                      {additionalSkillRow.education_background[0].graduation}
-                    </StyledTableCell>
-                  </StyledTableRow>
+                  {additionalSkillRow.education_background.map(
+                    (education: any) => {
+                      return (
+                        <StyledTableRow key={uuid()}>
+                          <StyledTableCell component='th' scope='row'>
+                            {education.field}
+                          </StyledTableCell>
+                          <StyledTableCell align='right'>
+                            {education.degree}
+                          </StyledTableCell>
+                          <StyledTableCell align='right'>
+                            {education.entrance}
+                          </StyledTableCell>
+                          <StyledTableCell align='right'>
+                            {education.graduation}
+                          </StyledTableCell>
+                        </StyledTableRow>
+                      );
+                    }
+                  )}
                 </TableBody>
               </Table>
               <h2>Work and volunteering</h2>
@@ -155,17 +173,21 @@ const ModalComponent: React.FC<{
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  <StyledTableRow key={uuid()}>
-                    <StyledTableCell component='th' scope='row'>
-                      {additionalSkillRow.work_and_volunteering[0].title}
-                    </StyledTableCell>
-                    <StyledTableCell align='right'>
-                      {additionalSkillRow.work_and_volunteering[0].company}
-                    </StyledTableCell>
-                    <StyledTableCell align='right'>
-                      {additionalSkillRow.work_and_volunteering[0].duration}
-                    </StyledTableCell>
-                  </StyledTableRow>
+                  {additionalSkillRow.work_and_volunteering.map((work: any) => {
+                    return (
+                      <StyledTableRow key={uuid()}>
+                        <StyledTableCell component='th' scope='row'>
+                          {work.title}
+                        </StyledTableCell>
+                        <StyledTableCell align='right'>
+                          {work.company}
+                        </StyledTableCell>
+                        <StyledTableCell align='right'>
+                          {work.duration}
+                        </StyledTableCell>
+                      </StyledTableRow>
+                    );
+                  })}
                 </TableBody>
               </Table>
             </TableContainer>

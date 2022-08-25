@@ -30,21 +30,11 @@ const Table: React.FC = () => {
 
   const handleUpdate = async () => {
     //@ts-ignore
-    const updatedData = tableData.map((obj: any) => {
-      return {
-        fullName: obj.fullname,
-        email: obj.email,
-        birthday: obj.birthday,
-        phoneNumber: obj.phonenumber,
-        hardSkills: obj.hard_skills,
-        softSkills: obj.soft_skills,
-      };
-    });
 
     try {
       await axios.post(
         'http://localhost:4000/updateFormToNotion',
-        { updatedData },
+        { tableData },
         {
           headers: {
             'Content-Type': 'application/json',
