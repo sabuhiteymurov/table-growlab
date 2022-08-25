@@ -33,7 +33,7 @@ const Table: React.FC = () => {
 
     try {
       await axios.post(
-        'http://localhost:4000/updateFormToNotion',
+        'http://localhost:3037/updateFormToNotion',
         { tableData },
         {
           headers: {
